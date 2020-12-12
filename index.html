@@ -1,23 +1,50 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>learning svg</title>
-</head>
-<style>
-   
-</style>
-<body>
-<svg width="300" class="hamburger" height="300" viewBox="0 0 100 100" >
-   <line class="line-1" x1="20" x2="80" y1="20" y2="20" stroke-width="10" stroke="#000"/>
-   <line class="line-2" x1="20" x2="80" y1="40" y2="40" stroke-width="10" stroke="#000"/>
-   <line class="line-3" x1="20" x2="80" y1="60" y2="60" stroke-width="10" stroke="#000"/>
-</svg> 
 
-<svg width="200" height="200">
-   <circle r="30" cx="100" cy="100" stroke-width="4" stroke="#000" fill="none" />
-   <line class="search-line" x1="120" x2="155" y1="120" y2="155" stroke-width="4" stroke="#010101"/>
-</svg>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>learning svg</title>
+   <link rel="stylesheet" href="/index.css" class="css">
+</head>
+
+<body>
+   <section class="container">
+      <div>
+         <svg width="300" class="hamburger" height="300" viewBox="0 0 100 100">
+            <line class="line-1" x1="20" x2="80" y1="20" y2="20" stroke-width="10" stroke="#000" />
+            <line class="line-2" x1="20" x2="80" y1="40" y2="40" stroke-width="10" stroke="#000" />
+            <line class="line-3" x1="20" x2="80" y1="60" y2="60" stroke-width="10" stroke="#000" />
+         </svg>
+      </div>
+
+      <div>
+         <svg width="200" height="200">
+            <circle r="30" cx="100" cy="100" stroke-width="4" stroke="#000" fill="none" />
+            <line class="search-line" x1="120" x2="155" y1="120" y2="155" stroke-width="4" stroke="#010101" />
+         </svg>
+      </div>
+
+      <div className="computer-text-animation">
+         <h1>More than 200 career options</h1>
+         <button id="replay">Replay</button>
+      </div>
+   </section>
+   <section class="option-container">
+      <div class="option">
+         <span>Catalog</span>
+         <svg width="25" height="25" viewBox="0 0 25 25" class="arrow-up">
+            <line x1="10" x2="20" y1="15" y2="8" stroke="#000" stroke-width="1" />
+            <line x1="10" x2="20" y1="15" y2="22" stroke="#000" stroke-width="1" />
+         </svg>
+      </div>
+      <!-- <div class="option-content">
+         <div class="rect">
+         </div>
+         <div class="content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, facilis deserunt blanditiis saepe similique
+         </div>
+      </div> -->
+   </section>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
    <script src="js/hamburger.js"></script>
 </body>
