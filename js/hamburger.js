@@ -46,17 +46,22 @@ hamburger.addEventListener('click', (_) => {
 
 // option
 const option = document.querySelector('.option-container');
+const optionContent = document.querySelector('.option-content');
 option.addEventListener('mouseenter', () => {
-  gsap.to('.option-container', { x: -200, duration: 1 });
-  // document.querySelector('.option').classList.toggle('close');
+  if (option.classList.contains('open')) return;
+  gsap.to('.option-container', { x: -460, duration: 0.7 });
+  document.querySelector('.option').classList.toggle('close');
   option.classList.toggle('open');
+  optionContent.classList.toggle('close');
 });
-option.addEventListener('mouseout', () => {
+option.addEventListener('mouseleave', () => {
   if (option.classList.contains('open')) {
-    gsap.to('.option-container', { x: 0, duration: 0.25 });
+    option.classList.toggle('open');
+    optionContent.classList.toggle('close');
+    document.querySelector('.option').classList.toggle('close');
+    gsap.to('.option-container', { x: 0, duration: 0.5 });
   }
-  // document.querySelector('.option').classList.toggle('close');
-  option.classList.toggle('open');
+  return;
 });
 // Text animation
 // randomize array elements using the Durstenfeld shuffle algorithm.
