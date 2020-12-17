@@ -12,4 +12,13 @@ const calculateSeive = (number) => {
   }
   return result;
 };
-console.log(calculateSeive(100));
+function range(x, y) {
+  if (y - x === 2) {
+    return [x + 1];
+  } else {
+    var array = range(x, y - 1);
+    array.push(y - 1);
+    return array;
+  }
+}
+console.log(range(100, 500));
