@@ -1,0 +1,195 @@
+var acAnimated = { Plugins: {} };
+/* SplitText Plugin - Starts */
+acAnimated.Plugins.SplitText = function (element, options) {
+  if (!options.hasOwnProperty('words')) options.words = 1;
+  if (!options.hasOwnProperty('chars')) options.chars = 1;
+  if (!options.hasOwnProperty('spacing')) options.spacing = 5;
+  this.searchTextNodes = function (element) {
+    var foundTextNodes = [];
+    if (element == null || element == undefined) return foundTextNodes;
+    for (var i = 0; i <= element.childNodes.length - 1; i++) {
+      var node = element.childNodes[i];
+      if (node.nodeName == '#text') {
+        //text found
+        foundTextNodes.push(node);
+      } else {
+        var foundTextNodes = foundTextNodes.concat(this.searchTextNodes(node));
+      }
+    }
+    return foundTextNodes;
+  };
+  this.createElement = function (text, relatedNode) {
+    var node = document.createElement('div');
+    var nodeText = document.createTextNode(text);
+    node.nodeText = nodeText;
+    node.appendChild(nodeText);
+    node.style.display = 'inline-block';
+    node.style.position = 'relative';
+    if (text.trim() == '') node.style.width = String(options.spacing) + 'px';
+    relatedNode.parentNode.insertBefore(node, relatedNode);
+    return node;
+  };
+  this.splitCharacters = function (textNode) {
+    var characters = textNode.nodeValue.toString();
+    var chars = [];
+    if (characters.trim() != '') {
+      for (var c = 0; c <= characters.length - 1; c++) {
+        var character = characters.substr(c, 1);
+        var char = this.createElement(character, textNode);
+        if (character.trim() != '') chars.push(char);
+      }
+      textNode.parentNode.removeChild(textNode);
+    }
+    return chars;
+  };
+  this.splitWords = function (textNode) {
+    var textWords = textNode.nodeValue.toString().split(' ');
+    var words = [];
+    for (var w = 0; w <= textWords.length - 1; w++) {
+      var textWord = textWords[w];
+      var word = this.createElement(textWord, textNode);
+      if (textWord.trim() != '') words.push(word);
+      if (w < textWords.length - 1) this.createElement(' ', textNode); //spacing for word
+    }
+    textNode.parentNode.removeChild(textNode);
+    return words;
+  };
+  this.splitTextNodes = function (textNodes) {
+    var splitText = { words: [], chars: [] };
+    for (var i = 0; i <= textNodes.length - 1; i++) {
+      var textNode = textNodes[i];
+      if (options.words == 0) {
+        splitText.chars = splitText.chars.concat(
+          this.splitCharacters(textNode)
+        );
+      } else {
+        var words = this.splitWords(textNode);
+        if (options.chars == 1) {
+          for (var w = 0; w <= words.length - 1; w++) {
+            word = words[w];
+            var chars = this.splitCharacters(word.nodeText);
+            splitText.chars = splitText.chars.concat(chars);
+            word.chars = chars;
+          }
+        }
+        splitText.words = splitText.words.concat(words);
+      }
+    }
+    return splitText;
+  };
+  var textNodes = this.searchTextNodes(element);
+  var splitText = this.splitTextNodes(textNodes);
+  return splitText;
+};
+/* SplitText Plugin - Ends */
+
+acAnimated.randomNumber = function (min, max) {
+  var num = min + Math.floor(Math.random() * (max - (min - 1)));
+  return num;
+};
+acAnimated.randomDirection = function (number) {
+  var direction = Math.floor(Math.random() * 2);
+  if (direction == 0) number = 0 - number;
+  return number;
+};
+acAnimated.animateChar = function (char) {
+  var timeline = gsap.timeline({});
+  timeline.from(char, acAnimated.randomNumber(3, 5) / 10, {
+    top: acAnimated.randomDirection(acAnimated.randomNumber(10, 50)),
+    rotationZ: acAnimated.randomDirection(acAnimated.randomNumber(90, 360)),
+    rotationX: acAnimated.randomDirection(acAnimated.randomNumber(90, 360)),
+    opacity: 0,
+  });
+  return timeline;
+};
+acAnimated.animateWord = function (word) {
+  var timeline = gsap.timeline({});
+  timeline.from(word, acAnimated.randomNumber(3, 5) / 10, {
+    top: acAnimated.randomDirection(acAnimated.randomNumber(10, 50)),
+    rotationX: acAnimated.randomDirection(acAnimated.randomNumber(90, 360)),
+    opacity: 0,
+  });
+  return timeline;
+};
+var text = document.body.querySelector('.computer-text-animation h1');
+var splitText = acAnimated.Plugins.SplitText(text, {
+  words: 1,
+  chars: 1,
+  spacing: 10,
+});
+// var timeline = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+// var timeline = gsap.timeline({ reversed: true });
+
+// for (var i = 0; i <= splitText.chars.length - 1; i++) {
+//   var char = splitText.chars[i];
+//   timeline.add(
+//     'animated_char_' + String(i),
+//     acAnimated.randomNumber(1, 20) / 10
+//   );
+//   timeline.add(acAnimated.animateChar(char), 'animated_char_' + String(i));
+// }
+
+//For words
+
+// for (var i = 0; i <= splitText.words.length - 1; i++) {
+//   var word = splitText.words[i];
+//   timeline
+//     .add('animated_word_' + String(i), acAnimated.randomNumber(1, 20) / 10)
+//     .add(acAnimated.animateWord(word), 'animated_word_' + String(i));
+// }
+
+// ----
+// my timeline
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+masterTL = gsap.timeline({ paused: false, reversed: true });
+let shuffleCharArray = shuffleArray(splitText.chars);
+// shuffleCharArray.forEach(function (elem, index) {
+for (var i = 0; i <= splitText.chars.length - 1; i++) {
+  var tl = gsap.timeline();
+  var char = splitText.chars[i];
+  //   tl.set(elem, { className: '+=state-1' })
+  //     .set(elem, { delay: 0.1, className: '+=state-2' })
+  //     .set(elem, { delay: 0.1, className: '+=state-3' });
+
+  //   tl.set('animated_char_' + String(i), { className: '+=state-1' });
+  //   tl.set('animated_char_' + String(i), { className: '+=state-2' });
+  //   tl.set('animated_char_' + String(i), { className: '+=state-3' });
+
+  masterTL.add(
+    'animated_char_' + String(i),
+    acAnimated.randomNumber(1, 20) / 10
+  );
+
+  masterTL.add(
+    'animated_char_' + String(i),
+    acAnimated.randomNumber(1, 20) / 10
+  );
+  masterTL.add(acAnimated.animateChar(char), 'animated_char_' + String(i));
+
+  //   masterTL.add(tl, acAnimated.randomNumber(1, 20) / 10);
+
+  //   masterTL.add(tl, index * 0.02);
+  masterTL.add(tl, i * 0.02);
+}
+// });
+// masterTL.to(text, 3, {}).to(text, 1, { opacity: 0 });
+masterTL.play();
+var audio = new Audio('/assets/thanos-snap.mp3');
+document.querySelector('#replay').addEventListener('click', function () {
+  !masterTL.reversed() && audio.play();
+  masterTL.reversed() ? masterTL.play() : masterTL.reverse();
+});
+
+// end my timeline
+
+// timeline.to(text, 3, {}).to(text, 1, { opacity: 0 });
