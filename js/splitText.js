@@ -171,6 +171,7 @@ masterTL.play();
 var audio = new Audio('/assets/thanos-snap.mp3');
 document.querySelector('#replay').addEventListener('click', function () {
   !masterTL.reversed() && audio.play();
+  document.querySelector('.computer-text-animation').classList.toggle('revive');
   masterTL.reversed() ? masterTL.play() : masterTL.reverse();
 });
 
