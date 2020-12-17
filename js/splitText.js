@@ -117,8 +117,8 @@ var splitText = acAnimated.Plugins.SplitText(text, {
   chars: 1,
   spacing: 10,
 });
+
 // var timeline = gsap.timeline({ repeat: -1, repeatDelay: 0 });
-// var timeline = gsap.timeline({ reversed: true });
 
 // for (var i = 0; i <= splitText.chars.length - 1; i++) {
 //   var char = splitText.chars[i];
@@ -153,36 +153,20 @@ function shuffleArray(array) {
 
 masterTL = gsap.timeline({ paused: false, reversed: true });
 let shuffleCharArray = shuffleArray(splitText.chars);
-// shuffleCharArray.forEach(function (elem, index) {
 for (var i = 0; i <= splitText.chars.length - 1; i++) {
   var tl = gsap.timeline();
   var char = splitText.chars[i];
-  //   tl.set(elem, { className: '+=state-1' })
-  //     .set(elem, { delay: 0.1, className: '+=state-2' })
-  //     .set(elem, { delay: 0.1, className: '+=state-3' });
-
-  //   tl.set('animated_char_' + String(i), { className: '+=state-1' });
-  //   tl.set('animated_char_' + String(i), { className: '+=state-2' });
-  //   tl.set('animated_char_' + String(i), { className: '+=state-3' });
-
   masterTL.add(
     'animated_char_' + String(i),
     acAnimated.randomNumber(1, 20) / 10
   );
-
   masterTL.add(
     'animated_char_' + String(i),
     acAnimated.randomNumber(1, 20) / 10
   );
   masterTL.add(acAnimated.animateChar(char), 'animated_char_' + String(i));
-
-  //   masterTL.add(tl, acAnimated.randomNumber(1, 20) / 10);
-
-  //   masterTL.add(tl, index * 0.02);
   masterTL.add(tl, i * 0.02);
 }
-// });
-// masterTL.to(text, 3, {}).to(text, 1, { opacity: 0 });
 masterTL.play();
 var audio = new Audio('/assets/thanos-snap.mp3');
 document.querySelector('#replay').addEventListener('click', function () {
