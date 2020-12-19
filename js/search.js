@@ -10,4 +10,3 @@ gsap.from('.search-line', {
   duration: 1.5,
   ease: 'bounce',
 });
-gsap.from('#Path_2', { drawSVG: 0, x: 500, duration: 3 });
