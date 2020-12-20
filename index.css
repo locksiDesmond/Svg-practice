@@ -165,13 +165,11 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  padding-bottom: 20rem;
 }
 .layers {
   position: relative;
   flex-direction: column;
   height: 100vh;
-  margin-bottom: 100rem;
 }
 .layers > div {
   position: absolute;
@@ -187,11 +185,11 @@ body {
   z-index: 2;
 }
 .red {
-  background-color: red;
+  background-color: rgb(179, 81, 63);
   z-index: 3;
 }
 .blue {
-  background-color: blue;
+  background-color: #18184e;
   z-index: 4;
 }
 .whole-page_text {
@@ -206,9 +204,10 @@ body {
 .horizontal-scroll {
   height: 100vh;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
-.horizontal-scroll > div {
-  min-width: 100vw;
+.con {
+  width: 100vw;
+  position: absolute;
   height: 100vh;
 }
