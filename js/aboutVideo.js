@@ -1,5 +1,7 @@
 const videoAnimation = gsap.timeline({});
-videoAnimation.to('.intro video', { currentTime: 10, duration: 0.3 });
+videoAnimation
+  .to('.intro h1', 0.1, { opacity: 0 }, 'slide')
+  .to('.intro video', { currentTime: 10, duration: 0.1 }, 'slide');
 ScrollTrigger.create({
   trigger: '.intro',
   scroller: '#app',
@@ -12,7 +14,6 @@ ScrollTrigger.create({
 
 // const video = document.querySelector('.intro video ');
 // const intro = document.querySelector('.intro');
-
 // const controller = new ScrollMagic.Controller();
 // const scene = new ScrollMagic.Scene({
 //   duration: 5000,
