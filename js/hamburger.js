@@ -44,6 +44,14 @@ hamburger.addEventListener('click', (_) => {
   toggleMenu.reversed() ? toggleMenu.play() : toggleMenu.reverse();
 });
 
+//text
+const textTimeline = gsap.timeline({ paused: true });
+textTimeline.to('.content #description ', {
+  duration: 2,
+  text: 'Locksi is a frontend developer with amazing work ethic',
+  ease: 'none',
+  delimiter: ' ',
+});
 // option
 const option = document.querySelector('.option-container');
 const optionContent = document.querySelector('.option-content');
@@ -51,15 +59,19 @@ option.addEventListener('mouseenter', () => {
   if (option.classList.contains('open')) return;
   gsap.to('.option-container', { x: -460, duration: 0.7 });
   document.querySelector('.option').classList.toggle('close');
+  textTimeline.play(); // text
   option.classList.toggle('open');
   optionContent.classList.toggle('close');
 });
 option.addEventListener('mouseleave', () => {
   if (option.classList.contains('open')) {
     option.classList.toggle('open');
+    textTimeline.pause(); // text
     optionContent.classList.toggle('close');
     document.querySelector('.option').classList.toggle('close');
     gsap.to('.option-container', { x: 0, duration: 0.5 });
   }
   return;
 });
+
+//option text

@@ -18,7 +18,7 @@ const sections = gsap.utils.toArray('.con');
 const horizontal = gsap.timeline({});
 horizontal.from(sections, {
   xPercent: -100 * (sections.length - 1),
-  stagger: 1,
+  stagger: 0.3,
 });
 
 ScrollTrigger.create({
