@@ -1,0 +1,40 @@
+.icons {
+  fill: #004167;
+}
+
+.gear {
+  fill: #d9468f;
+  /* transition: fill 70ms ease-in; */
+}
+.ring {
+  stroke: #d9468f;
+}
+.bg {
+  fill: white;
+  stroke: #d9468f;
+  /* transition: fill 70ms ease-in; */
+}
+/* .human:hover {
+  cursor: pointer;
+}
+.human:hover .bg {
+  fill: #d9468f;
+  stroke: #d9468f;
+}
+.human:hover .icons {
+  fill: white;
+} */
+.human:hover {
+  cursor: pointer;
+}
+/* .gear.hover {
+  fill: white;
+}
+
+.bg.hover {
+  fill: #d9468f;
+  stroke: #d9468f;
+}
+.hover.icons {
+  fill: white;
+} */
