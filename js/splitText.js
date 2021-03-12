@@ -168,6 +168,7 @@ for (var i = 0; i <= splitText.chars.length - 1; i++) {
   masterTL.add(tl, i * 0.02);
 }
 masterTL.play();
+// Thanos snap
 var audio = new Audio('/assets/thanos-snap.mp3');
 document.querySelector('#replay').addEventListener('click', function () {
   !masterTL.reversed() && audio.play();

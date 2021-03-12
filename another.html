@@ -3,17 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheel</title>
-    <link rel="stylesheet" href="wheel.css">
+    <title>Another</title>
 </head>
 
 <body>
-    <svg width="562" height="560" viewBox="0 0 562 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="577" height="570" viewBox="0 0 577 570" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <style>
+                .icons {
+                    fill: #004167;
+                }
+
+                .gear {
+                    fill: #d9468f;
+                }
+
+                .ring {
+                    stroke: #d9468f;
+                }
+
+                .bg {
+                    fill: white;
+                    stroke: #d9468f;
+                }
+
+                .human:hover {
+                    cursor: pointer;
+                }
+            </style>
+        </defs>
         <path
-            d="M57.2575 99.8666L79.1743 141.083L53.6867 196.217L7.69411 199.393L0 237.004L35.3596 263.491L38.461 318.949L4.9276 348.256L16.1831 383.858L57.0113 386.35L89.1952 432.677L76.5401 479.997L106.5 502.604L139.571 483.796L187.977 508.592L195.332 550.327L234.666 560L265.921 526.844L321.645 525.014L349.77 557.389L383.368 546.128L388.869 505.154L436.306 471.449L479.118 483.176L503.93 455.879L486.568 415.91L510.335 369.047L552.525 358.575L562 331.068L526.955 296.774L524.92 239.794L558.164 208.844L546.909 173.242L504.065 173.633L468.27 123.61L486.582 84.8478L458.859 59.7914L421.85 78.7834L368.933 51.2928L362.015 8.50906L327.303 0.326064L298.982 32.9641L244.781 35.8591L213.729 0L181.018 10.7436L177.174 61.1211L126.921 93.9893L82.1619 71.216L57.2575 99.8666Z"
+            d="M58.7857 101.65L81.2874 143.603L55.1197 199.721L7.89946 202.953L0 241.236L36.3034 268.196L39.4876 324.645L5.05912 354.475L16.615 390.712L58.533 393.249L91.5759 440.404L78.583 488.569L109.342 511.579L143.296 492.435L192.994 517.674L200.545 560.154L240.929 570L273.019 536.252L330.229 534.389L359.105 567.343L393.6 555.88L399.248 514.174L447.951 479.868L491.906 491.804L517.38 464.02L499.554 423.337L523.956 375.637L567.272 364.978L577 336.98L541.02 302.074L538.931 244.076L573.062 212.573L561.506 176.336L517.519 176.734L480.768 125.818L499.569 86.363L471.106 60.8591L433.109 80.1902L378.78 52.2088L371.678 8.66101L336.039 0.331887L306.962 33.5528L251.314 36.4995L219.434 0L185.85 10.9355L181.903 62.2126L130.308 95.6677L84.3548 72.4878L58.7857 101.65Z"
             class="gear" />
         <g class="human">
-            <path d="M281.64 281.267L483.292 120.867L499 144L528.91 201L538 254V309L528.91 338.993L281.64 281.267Z"
+            <path d="M281.64 291.267L483.292 130.867L525.976 198.474L537.433 264.188L528.91 338.993L281.64 281.267Z"
                 class="bg purple" stroke-width="8" />
             <g class="icons">
                 <path
@@ -254,64 +277,65 @@
                     <rect width="68.4813" height="68.4813" class="icons" transform="translate(246.312 269.507)" />
                 </clipPath>
             </defs>
-    </svg>
-    <script>
-        const gear = document.querySelector('.gear');
-        const ring = document.querySelector('.ring');
-        const groups = document.querySelectorAll('.human');
-        const groupsBg = document.querySelectorAll('.bg');
-        groups.forEach((group) => {
-            group.addEventListener('mouseenter', (e) => {
-                e.stopPropagation()
-                const bg = group.querySelector('.bg');
-                const icons = group.querySelector('.icons');
-                const c = group.querySelector('.bg').classList.value.replace('bg ', '');
-                if (bg.classList.contains('hover')) return;
-                let color = getColor(c);
-                icons.style.fill = 'white';
-                gear.style.fill = color
-                ring.style.stroke = color
-                bg.style.fill = color
-                bg.style.stroke = '#d9468f'
-                bg.classList.toggle('hover')
-                groups.forEach(newGroup => {
-                    const bg = newGroup.querySelector('.bg');
-                    bg.style.stroke = color
-                })
-            })
-            group.addEventListener('mouseleave', (e) => {
-                e.stopPropagation()
-                const bg = group.querySelector('.bg');
-                const icons = group.querySelector('.icons');
-                if (bg.classList.contains('hover')) {
-                    icons.style.fill = '#004167';
-                    gear.style.fill = '#d9468f';
-                    ring.style.stroke = '#d9468f';
-                    bg.style.fill = '#fff'
-                    bg.style.stroke = '#d9468f'
-                    bg.classList.toggle('hover')
-                    groups.forEach(newGroup => {
-                        const bg = newGroup.querySelector('.bg');
+            <script type="text/javascript">
+                const gear = document.querySelector('.gear');
+                const ring = document.querySelector('.ring');
+                const groups = document.querySelectorAll('.human');
+                const groupsBg = document.querySelectorAll('.bg');
+                groups.forEach((group) => {
+                    group.addEventListener('mouseenter', (e) => {
+                        e.stopPropagation()
+                        const bg = group.querySelector('.bg');
+                        const icons = group.querySelector('.icons');
+                        const c = group.querySelector('.bg').classList.value.replace('bg ', '');
+                        if (bg.classList.contains('hover')) return;
+                        let color = getColor(c);
+                        icons.style.fill = 'white';
+                        gear.style.fill = color
+                        ring.style.stroke = color
+                        bg.style.fill = color
                         bg.style.stroke = '#d9468f'
+                        bg.classList.toggle('hover')
+                        groups.forEach(newGroup => {
+                            const bg = newGroup.querySelector('.bg');
+                            bg.style.stroke = color
+                        })
                     })
-                };
-            })
-        })
-        const getColor = (color) => {
-            switch (color) {
-                case 'yellow':
-                    return '#E8B742';
-                case 'pink':
-                    return '#d9468f';
-                case 'purple':
-                    return '#B9A1CA';
-                case 'blue':
-                    return '#004167'
-                default:
-                    return '#004167'
-            }
-        }
-    </script>
+                    group.addEventListener('mouseleave', (e) => {
+                        e.stopPropagation()
+                        const bg = group.querySelector('.bg');
+                        const icons = group.querySelector('.icons');
+                        if (bg.classList.contains('hover')) {
+                            icons.style.fill = '#004167';
+                            gear.style.fill = '#d9468f';
+                            ring.style.stroke = '#d9468f';
+                            bg.style.fill = '#fff'
+                            bg.style.stroke = '#d9468f'
+                            bg.classList.toggle('hover')
+                            groups.forEach(newGroup => {
+                                const bg = newGroup.querySelector('.bg');
+                                bg.style.stroke = '#d9468f'
+                            })
+                        };
+                    })
+                })
+                const getColor = (color) => {
+                    switch (color) {
+                        case 'yellow':
+                            return '#E8B742';
+                        case 'pink':
+                            return '#d9468f';
+                        case 'purple':
+                            return '#B9A1CA';
+                        case 'blue':
+                            return '#004167'
+                        default:
+                            return '#004167'
+                    }
+                }
+            </script>
+    </svg>
+
 </body>
 
 </html>
