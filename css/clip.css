@@ -1,0 +1,63 @@
+body {
+  background-color: #999;
+}
+.polygon3 {
+  /* clip-path: polygon(
+    45% 0%,
+    100% 0,
+    100% 100%,
+    32% 100%,
+    35% 57%,
+    4% 57%,
+    35% 31%,
+    4% 31%,
+    8% 0%
+  ); */
+  clip-path: polygon(
+    45% 0%,
+    100% 0,
+    100% 100%,
+    24% 100%,
+    37% 65%,
+    17% 65%,
+    25% 31%,
+    0% 31%,
+    8% 0%
+  );
+
+  background-color: #fff;
+}
+
+.polygon2 {
+  clip-path: polygon(
+    45% 0%,
+    100% 0,
+    100% 100%,
+    32% 100%,
+    40% 57%,
+    5% 57%,
+    14% 0%
+  );
+  background-color: #fff;
+}
+
+.polygon {
+  clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.banner {
+  line-height: 4rem;
+  background-color: #fff;
+  font-size: 2rem;
+  padding: 0.25rem 1.5rem;
+  overflow-wrap: break-word;
+  font-weight: 900;
+  width: 67%;
+  padding-left: 2rem;
+  padding-bottom: 0.35rem;
+}
+.banner-wrapper {
+  text-align: right;
+  height: auto;
+  max-width: 450px;
+}
