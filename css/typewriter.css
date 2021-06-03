@@ -11,7 +11,8 @@ body {
   /* width: min(90%, 1244px); */
   padding: 4rem 5rem;
   margin-inline: auto;
-  height: 291vh;
+  height: 131vh;
+  /* margin-top: 120vh; */
 }
 .hero-header {
   display: flex;
@@ -72,7 +73,7 @@ body {
   margin-left: auto;
   margin-right: -55%;
   margin-top: 24%;
-  transform: rotate(-360deg);
+  transform: rotate(0deg);
 }
 
 .first-circle {

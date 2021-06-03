@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/typewriter.css">
 </head>
 
-<body id="app">
+<body>
     <section class="hero">
         <div>
             <div class="hero-header">
@@ -47,10 +47,11 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/TextPlugin.min.js"></script>
     <script>
+        gsap.registerPlugin(ScrollTrigger)
+
         var tl = new gsap.timeline({
             paused: true
         });
@@ -66,33 +67,20 @@
             width: "10.18em", /* same as CSS .line-1 width */
             ease: SteppedEase.config(37)
         }, 1.9);
-        // text cursor animation
-        // tl.fromTo(".anim-typewriter", 0.5, {
-        //     "border-right-color": "rgba(255,255,255,0.75)"
-        // }, {
-        //     "border-right-color": "rgba(255,255,255,0)",
-        //     // repeat: -1,
-        //     ease: SteppedEase.config(37)
-        // }, 0);
-
         tl.play();
     </script>
     <script>
-        // gsap.register(ScrollTrigger)
-        const layers = gsap.timeline({ ease: 'ease' });
-        layers
-            .to('#circle-img', { rotation: 180, })
-
-
-        ScrollTrigger.create({
-            trigger: 'hero',
-            scroller: '#app',
-            animation: layers,
-            scrub: true,
-            // start: 'center',
-            pin: true,
-        });
-
+        gsap.to('#circle-img', {
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                markers: true,
+                scrub: 1,
+                toggleActions: 'restart none reverse none'
+            },
+            rotation: -180,
+            duration: 10
+        })
     </script>
 
 </body>
