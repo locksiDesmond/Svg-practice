@@ -5,22 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TypeWriter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="css/typewriter.css">
 </head>
 
-<body>
+<body id="app">
     <section class="hero">
-        <h2 class="hero-header anim-typewriter">
-            Unlock your innovation
-            potential with RISE.
-        </h2>
-        <p class="hero-text">
-            Are you based in West Sussex?
-            Would innovation help your business grow?
-        </p>
-        <a>
-            <img src="/assets/forward.svg" alt="forward" />
-        </a>
+        <div>
+            <div class="hero-header">
+                <p class=" anim-typewriter1">
+                    Unlock your innovation
+                </p>
+                <p class="anim-typewriter">
+                    potential with RISE.
+                </p>
+            </div>
+            <div>
+                <p class="hero-text">
+                    Are you based in West Sussex?
+                </p>
+                <p class="hero-text">
+                    Would innovation help your business grow?
+                </p>
+            </div>
+
+            <a class="forward">
+                <span>
+                    Join us
+                </span>
+                <img src="/assets/forward.svg" alt="forward" />
+            </a>
+        </div>
+        <div class="circle-img">
+            <img id="circle-img" src="/assets/roundabout.png" />
+        </div>
+    </section>
+    <section>
     </section>
 
 
@@ -34,22 +55,44 @@
             paused: true
         });
         // letter animation
-        tl.fromTo(".anim-typewriter", 3, {
+        tl.fromTo(".anim-typewriter1", 2, {
             width: "0",
         }, {
-            width: "20.18em", /* same as CSS .line-1 width */
+            width: "10.18em", /* same as CSS .line-1 width */
             ease: SteppedEase.config(37)
-        }, 0);
-        // text cursor animation
-        tl.fromTo(".anim-typewriter", 0.5, {
-            "border-right-color": "rgba(255,255,255,0.75)"
+        }, 0).fromTo(".anim-typewriter", 2, {
+            width: "0",
         }, {
-            "border-right-color": "rgba(255,255,255,0)",
-            repeat: -1,
+            width: "10.18em", /* same as CSS .line-1 width */
             ease: SteppedEase.config(37)
-        }, 0);
+        }, 1.9);
+        // text cursor animation
+        // tl.fromTo(".anim-typewriter", 0.5, {
+        //     "border-right-color": "rgba(255,255,255,0.75)"
+        // }, {
+        //     "border-right-color": "rgba(255,255,255,0)",
+        //     // repeat: -1,
+        //     ease: SteppedEase.config(37)
+        // }, 0);
 
         tl.play();
+    </script>
+    <script>
+        // gsap.register(ScrollTrigger)
+        const layers = gsap.timeline({ ease: 'ease' });
+        layers
+            .to('#circle-img', { rotation: 180, })
+
+
+        ScrollTrigger.create({
+            trigger: 'hero',
+            scroller: '#app',
+            animation: layers,
+            scrub: true,
+            // start: 'center',
+            pin: true,
+        });
+
     </script>
 
 </body>
