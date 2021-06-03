@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeWriter</title>
+    <link rel="stylesheet" href="css/typewriter.css">
+</head>
+
+<body>
+    <section class="hero">
+        <h2 class="hero-header anim-typewriter">
+            Unlock your innovation
+            potential with RISE.
+        </h2>
+        <p class="hero-text">
+            Are you based in West Sussex?
+            Would innovation help your business grow?
+        </p>
+        <a>
+            <img src="/assets/forward.svg" alt="forward" />
+        </a>
+    </section>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/TextPlugin.min.js"></script>
+    <script>
+        var tl = new gsap.timeline({
+            paused: true
+        });
+        // letter animation
+        tl.fromTo(".anim-typewriter", 3, {
+            width: "0",
+        }, {
+            width: "20.18em", /* same as CSS .line-1 width */
+            ease: SteppedEase.config(37)
+        }, 0);
+        // text cursor animation
+        tl.fromTo(".anim-typewriter", 0.5, {
+            "border-right-color": "rgba(255,255,255,0.75)"
+        }, {
+            "border-right-color": "rgba(255,255,255,0)",
+            repeat: -1,
+            ease: SteppedEase.config(37)
+        }, 0);
+
+        tl.play();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+body {
+  font-size: 1em;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  column-gap: 3.125rem;
+}
+.hero-header {
+  width: 23ch;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  /* font-size: 180%; */
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-size: 3.75rem;
+  font-weight: 900;
+}
+.hero-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
