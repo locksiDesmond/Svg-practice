@@ -66,14 +66,16 @@ body {
 .circle-img {
   display: flex;
   width: 100%;
+  margin-right: -6rem;
+  height: 34rem;
+  overflow: hidden;
 }
 .circle-img img {
   height: fit-content;
-  border-radius: 50%;
   margin-left: auto;
-  margin-right: -55%;
+  margin-right: -40%;
   margin-top: 24%;
-  transform: rotate(0deg);
+  transform: rotate(29deg);
 }
 
 .first-circle {
