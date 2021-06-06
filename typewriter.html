@@ -12,7 +12,7 @@
 
 <body>
     <section class="hero">
-        <div>
+        <div class="hero-text-contents">
             <div class="hero-header">
                 <p class=" anim-typewriter1">
                     Unlock your innovation
@@ -44,9 +44,12 @@
                 <img src="/assets/typewriter/university_of_brighton.svg" alt="european union" />
             </div>
         </div>
+        <div>
+
+        </div>
         <div class="circle-img">
-            <!-- <img id="circle-img" src="/assets/lines.svg" /> -->
-            <img id="laughing" src="/assets/typewriter/hero.png" />
+            <img id="laughing-curve" src="/assets/typewriter/hero_curve.png" />
+            <img id="circle-img" src="/assets/lines.svg" />
         </div>
     </section>
     <section>
@@ -74,7 +77,13 @@
         }, {
             width: "10.18em", /* same as CSS .line-1 width */
             ease: SteppedEase.config(37)
-        }, 1.9);
+        }, 1.9)
+            .to('#laughing-curve', 0.25, {
+                x: '100vw'
+            }).to('#circle-img', 0.25, {
+                x: '15vw',
+                y: '-95vh'
+            });
         tl.play();
     </script>
     <script>
