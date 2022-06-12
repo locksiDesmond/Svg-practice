@@ -1,0 +1,26 @@
+.blowjob {
+  animation: smile-blowjob 2.25s steps(45) infinite;
+  background-image: url(/assets/blowjob.png);
+  height: 26px;
+  width: 60px;
+}
+
+/* @-webkit-keyframes smile-blowjob {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 -1170px;
+  }
+} */
+
+@keyframes smile-blowjob {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 -1170px;
+  }
+}
