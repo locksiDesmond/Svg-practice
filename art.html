@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Welcome to art</h1>
+	<svg viewport="0 0 400 400" width="400px" height="400px">
+
+	</svg>
+
+	<button id="reload">Reload</button>
+
+</body>
+<script>
+	const reload = document.querySelector('#reload');
+	reload.addEventListener('click', () => {
+		reset()
+		generateDots()
+	});
+	const svgWrapper = document.querySelector('svg');
+
+	function generateDots() {
+		for (let i = 0; i < 1000; i++) {
+			const element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+			const pos = Math.floor(Math.random() * 400);
+			const pos2 = Math.floor(Math.random() * 400);
+			element.setAttribute('r', '5')
+			element.setAttribute('cy', pos)
+			element.setAttribute('cx', pos2)
+			element.setAttribute('stroke-width', '2')
+			element.setAttribute('stroke', '#222222')
+
+			svgWrapper.appendChild(element)
+		}
+
+	}
+	function reset() {
+		svgWrapper.innerHTML = null
+	}
+
+	generateDots()
+</script>
+
+</html>
