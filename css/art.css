@@ -6,3 +6,11 @@
 .art > * {
   flex: 50%;
 }
+circle:hover {
+  /* transform: scale(200); */
+  /* opacity: 0; */
+  display: none;
+}
+line:nth-child(2n) {
+  stroke: brown;
+}

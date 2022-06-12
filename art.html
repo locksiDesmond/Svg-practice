@@ -10,20 +10,24 @@
 
 <body>
 	<h1>Welcome to art</h1>
-	<div>
+	<div class="art">
+		<div>
+			<svg id="random-data" viewport="0 0 400 400" width="400px" height="400px">
 
-		<svg id="random-data" viewport="0 0 400 400" width="400px" height="400px">
-
-		</svg>
+			</svg>
+			<button id="reload">Reload</button>
+		</div>
 		<svg id="triangle" viewport="0 0 400 400" width="400px" height="400px">
 
 			<circle id="one" r="3" stroke="#222222" cy="10" cx="180"></circle>
 			<circle id="two" r="3" stroke="#222222" cy="350" cx="10"></circle>
 			<circle id="three" r="3" stroke="#222222" cy="350" cx="350"></circle>
 		</svg>
+		<svg id="random-line" viewport="0 0 400 400" width="400px" height="400px">
+			<line x1="10" x2="90" y1="30" y2="200" stroke="#222222" stroke-width="2"></line>
+		</svg>
 
 	</div>
-	<button id="reload">Reload</button>
 
 </body>
 <script>
@@ -43,7 +47,6 @@
 				element.setAttributeNS(null, 'r', '5')
 				element.setAttributeNS(null, 'cy', pos)
 				element.setAttributeNS(null, 'cx', pos2)
-				element.setAttributeNS(null, 'stroke-width', '2')
 				element.setAttributeNS(null, 'stroke', '#222222')
 
 				svgWrapper.appendChild(element)
@@ -57,32 +60,53 @@
 		generateDots()
 	})();
 </script>
+<script>(function () {
+		const svgWrapper = document.querySelector('svg#triangle');
+		const Edges = svgWrapper.querySelectorAll('circle');
+		let prev = [180, 70];
+
+		for (let i = 0; i < 10000; i++) {
+
+			const edge = selectEdge();
+			const diff = [((prev[0] - edge[0])) / 2, ((prev[1] - edge[1])) / 2]
+			const newPoint = [diff[0] + edge[0], diff[1] + edge[1]];
+			createNewPoint(newPoint)
+			prev = [...newPoint];
+		}
+		function createNewPoint([x, y]) {
+			const element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+			element.setAttributeNS(null, 'r', '3')
+			element.setAttributeNS(null, 'cy', y)
+			element.setAttributeNS(null, 'cx', x)
+			element.setAttributeNS(null, 'stroke', '#222222')
+
+			svgWrapper.appendChild(element)
+		}
+
+		function selectEdge() {
+			const index = Math.floor(Math.random() * 3);
+			return [Number(Edges[index].getAttribute('cx')), Number(Edges[index].getAttribute('cy'))]
+		}
+
+
+	})()</script>
 <script>
-	const svgWrapper = document.querySelector('svg#triangle');
-	const Edges = svgWrapper.querySelectorAll('circle');
-	let prev = [180, 70];
-
-	for (let i = 0; i < 10000; i++) {
-
-		const edge = selectEdge();
-		const diff = [((prev[0] - edge[0])) / 2, ((prev[1] - edge[1])) / 2]
-		const newPoint = [diff[0] + edge[0], diff[1] + edge[1]];
-		createNewPoint(newPoint)
-		prev = [...newPoint];
-	}
-	function createNewPoint([x, y]) {
-		const element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-		element.setAttributeNS(null, 'r', '3')
-		element.setAttributeNS(null, 'cy', y)
-		element.setAttributeNS(null, 'cx', x)
+	const svgWrapper = document.querySelector('svg#random-line');
+	for (let i = 0; i < 400; i++) {
+		const element = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+		const posX = Math.floor(Math.random() * 400);
+		const posX2 = Math.floor(Math.random() * 400);
+		const posY = Math.floor(Math.random() * 400);
+		const posY2 = Math.floor(Math.random() * 400);
+		element.setAttributeNS(null, 'x1', posX)
+		element.setAttributeNS(null, 'x2', posX2)
+		element.setAttributeNS(null, 'y1', posY)
+		element.setAttributeNS(null, 'y2', posY2)
+		element.setAttributeNS(null, 'stroke-width', '2')
 		element.setAttributeNS(null, 'stroke', '#222222')
 
 		svgWrapper.appendChild(element)
-	}
 
-	function selectEdge() {
-		const index = Math.floor(Math.random() * 3);
-		return [Number(Edges[index].getAttribute('cx')), Number(Edges[index].getAttribute('cy'))]
 	}
 
 </script>
