@@ -1,0 +1,8 @@
+.art {
+  display: flex;
+  flex: 0 0 1;
+  flex-wrap: wrap;
+}
+.art > * {
+  flex: 50%;
+}

@@ -5,45 +5,86 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="css/art.css">
 </head>
 
 <body>
 	<h1>Welcome to art</h1>
-	<svg viewport="0 0 400 400" width="400px" height="400px">
+	<div>
 
-	</svg>
+		<svg id="random-data" viewport="0 0 400 400" width="400px" height="400px">
 
+		</svg>
+		<svg id="triangle" viewport="0 0 400 400" width="400px" height="400px">
+
+			<circle id="one" r="3" stroke="#222222" cy="10" cx="180"></circle>
+			<circle id="two" r="3" stroke="#222222" cy="350" cx="10"></circle>
+			<circle id="three" r="3" stroke="#222222" cy="350" cx="350"></circle>
+		</svg>
+
+	</div>
 	<button id="reload">Reload</button>
 
 </body>
 <script>
-	const reload = document.querySelector('#reload');
-	reload.addEventListener('click', () => {
-		reset()
-		generateDots()
-	});
-	const svgWrapper = document.querySelector('svg');
+	(function () {
+		const reload = document.querySelector('#reload');
+		reload.addEventListener('click', () => {
+			reset()
+			generateDots()
+		});
+		const svgWrapper = document.querySelector('svg#random-data');
 
-	function generateDots() {
-		for (let i = 0; i < 1000; i++) {
-			const element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-			const pos = Math.floor(Math.random() * 400);
-			const pos2 = Math.floor(Math.random() * 400);
-			element.setAttribute('r', '5')
-			element.setAttribute('cy', pos)
-			element.setAttribute('cx', pos2)
-			element.setAttribute('stroke-width', '2')
-			element.setAttribute('stroke', '#222222')
+		function generateDots() {
+			for (let i = 0; i < 1000; i++) {
+				const element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+				const pos = Math.floor(Math.random() * 400);
+				const pos2 = Math.floor(Math.random() * 400);
+				element.setAttributeNS(null, 'r', '5')
+				element.setAttributeNS(null, 'cy', pos)
+				element.setAttributeNS(null, 'cx', pos2)
+				element.setAttributeNS(null, 'stroke-width', '2')
+				element.setAttributeNS(null, 'stroke', '#222222')
 
-			svgWrapper.appendChild(element)
+				svgWrapper.appendChild(element)
+			}
+
+		}
+		function reset() {
+			svgWrapper.innerHTML = null
 		}
 
+		generateDots()
+	})();
+</script>
+<script>
+	const svgWrapper = document.querySelector('svg#triangle');
+	const Edges = svgWrapper.querySelectorAll('circle');
+	let prev = [180, 70];
+
+	for (let i = 0; i < 10000; i++) {
+
+		const edge = selectEdge();
+		const diff = [((prev[0] - edge[0])) / 2, ((prev[1] - edge[1])) / 2]
+		const newPoint = [diff[0] + edge[0], diff[1] + edge[1]];
+		createNewPoint(newPoint)
+		prev = [...newPoint];
 	}
-	function reset() {
-		svgWrapper.innerHTML = null
+	function createNewPoint([x, y]) {
+		const element = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		element.setAttributeNS(null, 'r', '3')
+		element.setAttributeNS(null, 'cy', y)
+		element.setAttributeNS(null, 'cx', x)
+		element.setAttributeNS(null, 'stroke', '#222222')
+
+		svgWrapper.appendChild(element)
 	}
 
-	generateDots()
+	function selectEdge() {
+		const index = Math.floor(Math.random() * 3);
+		return [Number(Edges[index].getAttribute('cx')), Number(Edges[index].getAttribute('cy'))]
+	}
+
 </script>
 
 </html>
