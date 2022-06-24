@@ -1,8 +1,9 @@
 window.addEventListener("load", () => {
   addAnimation();
 });
+
 const addAnimation = () => {
-  const layers = gsap.timeline({ defaults: { ease: "linear" } });
+  const layers = gsap.timeline({ defaults: { ease: "none" } });
 
   layers.fromTo(
     ".stoke-city-flow",
@@ -48,11 +49,15 @@ const addAnimation = () => {
     trigger: ".stockcity-wrapper",
     scroller: "#app",
     animation: layers,
-    scrub: true,
+    scrub: 1,
     pin: true,
     start: "top top",
-    end: "bottom top",
-    snap: 1,
+    end: "320px",
+    snap: {
+      snapTo: [0.18, 0.36, 0.6, 0.85],
+      duration: { min: 0.2, max: 0.8 },
+      inertia: false,
+    },
   });
 };
 
