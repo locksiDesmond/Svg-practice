@@ -8,66 +8,72 @@
 	<link rel="stylesheet" href="css/stockcity.css">
 </head>
 
-<body>
-	<svg class="stoke-city-flow" width="1033" height="1016" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<g>
-			<circle cx="525.59" cy="501.59" r="354.731" transform="rotate(42.604 525.59 501.59)" stroke="#572A6C"
-				stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.2 55" />
-			<circle cx="525.305" cy="502.268" r="221.5" transform="rotate(28.213 525.305 502.268)" stroke="#572A6C"
-				stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.2 33" />
-		</g>
-		<!-- <circle cx="873.131" cy="502.148" r="112.51" transform="rotate(42.604 873.131 502.148)" fill="#fff" /> -->
-		<g class="develop">
-			<circle class="background" cx="871.805" cy="500.93" r="94.508" transform="rotate(42.604 871.805 500.93)"
-				fill="#E4EEFF" />
-			<circle class="circle" cx="871.807" cy="500.93" r="67.506" transform="rotate(42.604 871.807 500.93)"
-				fill="#236CF6" />
-			<path fill="#48E2E4" d="m835.334 490.464 72.763-10.647 3.872 26.459-72.763 10.647z" />
-		</g>
-		<g class="discover">
-			<circle class="background" cx="157.704" cy="500.93" r="94.508" transform="rotate(42.604 157.704 500.93)"
-				fill="#D9F5DF" />
-			<circle class="circle" cx="157.705" cy="500.93" r="67.506" transform="rotate(42.604 157.705 500.93)"
-				fill="#39BA55" />
-			<circle cx="157.651" cy="502.861" r="38.097" transform="rotate(-1.985 157.651 502.861)" fill="#fff" />
-			<path
-				d="M156.332 464.787a38.095 38.095 0 0 0-36.755 39.394 38.097 38.097 0 0 0 39.394 36.754l-1.32-38.074-1.319-38.074Z"
-				fill="#427928" />
-			<circle cx="157.606" cy="502.564" r="22.096" transform="rotate(36.675 157.606 502.564)" fill="#39BA55" />
-		</g>
-		<g class="deliver">
-			<circle class="background" cx="497.973" cy="855.72" r="94.508" transform="rotate(42.604 497.973 855.72)"
-				fill="#DFDEFA" />
-			<!-- <circle cx="497.973" cy="855.72" r="94.508" transform="rotate(42.604 497.973 855.72)" fill="#fff" /> -->
-			<mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="430" y="788" width="136" height="136">
-
-				<circle class="circle" cx="497.973" cy="855.719" r="67.506" transform="rotate(42.604 497.973 855.719)"
-					fill="#2C296C" />
-			</mask>
-			<g mask="url(#a)">
-				<circle cx="497.973" cy="855.719" r="67.506" transform="rotate(42.604 497.973 855.719)"
-					fill="#2C296C" />
-				<path d="m461.99 874.509 71.381 53.158-22.696 30.477-71.382-53.157 22.697-30.478Z" fill="#CC7BE4" />
-				<path
-					d="m509.931 862.832 46.137 34.358-22.697 30.477-46.137-34.358 22.697-30.477ZM553.519 847.913l25.245 18.799-22.696 30.478-25.245-18.8 22.696-30.477Z"
-					fill="#CC7BE4" />
+<body id="app">
+	<div class="stockcity-wrapper">
+		<svg class="stoke-city-flow" width="1033" height="1016" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g>
+				<circle cx="525.59" cy="501.59" r="354.731" transform="rotate(42.604 525.59 501.59)" stroke="#572A6C"
+					stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.2 55" />
+				<circle cx="525.305" cy="502.268" r="221.5" transform="rotate(28.213 525.305 502.268)" stroke="#572A6C"
+					stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.2 33" />
 			</g>
-		</g>
-		<g class="define">
-			<circle class="background" cx="499.569" cy="153.499" r="94.508" transform="rotate(42.604 499.569 153.499)"
-				fill="#FFEBE8" />
-			<circle class="circle" cx="499.567" cy="153.5" r="67.509" transform="rotate(42.604 499.567 153.5)"
-				fill="#FF5D44" />
-			<path
-				d="M515.592 191.829c-7.04-2.929-12.573-8.664-15.384-15.945-2.811-7.28-2.668-15.509.397-22.876 3.065-7.367 8.801-13.269 15.946-16.408 7.145-3.138 15.114-3.256 22.154-.327l-11.557 27.778-11.556 27.778ZM479.116 174.809c-7.04-2.929-12.574-8.664-15.385-15.944-2.81-7.281-2.667-15.509.398-22.877 3.064-7.367 8.8-13.269 15.945-16.407 7.146-3.139 15.114-3.256 22.154-.328l-11.556 27.778-11.556 27.778Z"
-				fill="#fff" />
-		</g>
-	</svg>
-
+			<g class="develop">
+				<circle class="background" cx="871.805" cy="500.93" r="94.508" transform="rotate(42.604 871.805 500.93)"
+					fill="#E4EEFF" />
+				<circle class="circle" cx="871.807" cy="500.93" r="67.506" transform="rotate(42.604 871.807 500.93)"
+					fill="#236CF6" />
+				<path fill="#48E2E4" d="m835.334 490.464 72.763-10.647 3.872 26.459-72.763 10.647z" />
+			</g>
+			<g class="discover">
+				<circle class="background" cx="157.704" cy="500.93" r="94.508" transform="rotate(42.604 157.704 500.93)"
+					fill="#D9F5DF" />
+				<circle class="circle" cx="157.705" cy="500.93" r="67.506" transform="rotate(42.604 157.705 500.93)"
+					fill="#39BA55" />
+				<circle cx="157.651" cy="502.861" r="38.097" transform="rotate(-1.985 157.651 502.861)" fill="#fff" />
+				<path
+					d="M156.332 464.787a38.095 38.095 0 0 0-36.755 39.394 38.097 38.097 0 0 0 39.394 36.754l-1.32-38.074-1.319-38.074Z"
+					fill="#427928" />
+				<circle cx="157.606" cy="502.564" r="22.096" transform="rotate(36.675 157.606 502.564)"
+					fill="#39BA55" />
+			</g>
+			<g class="deliver">
+				<circle class="background" cx="497.973" cy="855.72" r="94.508" transform="rotate(42.604 497.973 855.72)"
+					fill="#DFDEFA" />
+				<mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="430" y="788" width="136"
+					height="136">
+					<circle class="circle" cx="497.973" cy="855.719" r="67.506"
+						transform="rotate(42.604 497.973 855.719)" fill="#2C296C" />
+				</mask>
+				<g mask="url(#a)">
+					<circle cx="497.973" cy="855.719" r="67.506" transform="rotate(42.604 497.973 855.719)"
+						fill="#2C296C" />
+					<path d="m461.99 874.509 71.381 53.158-22.696 30.477-71.382-53.157 22.697-30.478Z" fill="#CC7BE4" />
+					<path
+						d="m509.931 862.832 46.137 34.358-22.697 30.477-46.137-34.358 22.697-30.477ZM553.519 847.913l25.245 18.799-22.696 30.478-25.245-18.8 22.696-30.477Z"
+						fill="#CC7BE4" />
+				</g>
+			</g>
+			<g class="define">
+				<circle class="background" cx="499.569" cy="153.499" r="94.508"
+					transform="rotate(42.604 499.569 153.499)" fill="#FFEBE8" />
+				<circle class="circle" cx="499.567" cy="153.5" r="67.509" transform="rotate(42.604 499.567 153.5)"
+					fill="#FF5D44" />
+				<path
+					d="M515.592 191.829c-7.04-2.929-12.573-8.664-15.384-15.945-2.811-7.28-2.668-15.509.397-22.876 3.065-7.367 8.801-13.269 15.946-16.408 7.145-3.138 15.114-3.256 22.154-.327l-11.557 27.778-11.556 27.778ZM479.116 174.809c-7.04-2.929-12.574-8.664-15.385-15.944-2.81-7.281-2.667-15.509.398-22.877 3.064-7.367 8.8-13.269 15.945-16.407 7.146-3.139 15.114-3.256 22.154-.328l-11.556 27.778-11.556 27.778Z"
+					fill="#fff" />
+			</g>
+		</svg>
+		<div class="stokecity-content">
+			<h3>Define</h3>
+			<p>Use these steps to tackle the
+				most complex social, economic & environmental problems.
+			</p>
+		</div>
+	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/TextPlugin.min.js"></script>
+	<script src="c-a-ws/script.js"></script>
 	<script src="./js/stockcity.js"></script>
 </body>
 
