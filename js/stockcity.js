@@ -9,7 +9,7 @@ const addAnimation = () => {
     ".stoke-city-flow",
     {
       rotateZ: -45,
-      transformOrigin: "500px 500px",
+      //   transformOrigin: "500px 500px",
     },
     {
       rotateZ: 325,
@@ -45,20 +45,20 @@ const addAnimation = () => {
     time += 5;
   });
 
-  ScrollTrigger.create({
-    trigger: ".stockcity-wrapper",
-    scroller: "#app",
-    animation: layers,
-    scrub: 1,
-    pin: true,
-    start: "top top",
-    end: "320px",
-    snap: {
-      snapTo: [0.18, 0.36, 0.6, 0.85],
-      duration: { min: 0.2, max: 0.8 },
-      inertia: false,
-    },
-  });
+  //   ScrollTrigger.create({
+  //     trigger: ".stockcity-wrapper",
+  //     scroller: "#app",
+  //     animation: layers,
+  //     scrub: 1,
+  //     pin: true,
+  //     start: "top top",
+  //     end: "320px",
+  //     snap: {
+  //       snapTo: [0.18, 0.36, 0.6, 0.85],
+  //       duration: { min: 0.2, max: 0.8 },
+  //       inertia: false,
+  //     },
+  //   });
 };
 
 const data = {
