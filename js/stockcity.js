@@ -8,19 +8,23 @@ const addAnimation = () => {
   layers.fromTo(
     ".stoke-city-flow",
     {
-      rotateZ: -45,
-      //   transformOrigin: "500px 500px",
+      //   rotateZ: -45,
+      transformOrigin: "500px 500px",
+      x: 0,
+      y: 0,
     },
     {
       rotateZ: 325,
       duration: 22.5,
+      x: 0,
+      y: 0,
     },
     "start"
   );
 
   let time = 0;
 
-  ["define", "discover", "deliver", "develop"].forEach((item) => {
+  ["discover", "define", "develop", "deliver"].forEach((item) => {
     layers
       .fromTo(
         `.${item} .circle`,
