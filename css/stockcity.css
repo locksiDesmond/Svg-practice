@@ -21,3 +21,18 @@
 .stokecity-content p {
   max-width: 25ch;
 }
+.active .circle {
+  /* transform: scale(1.4, 1.4); */
+  -webkit-transform: scale(1.6);
+  -webkit-transform-origin: 50% 50%;
+  -webkit-transition: 0.3s;
+  transform: scale(1.6);
+  transform-origin: 50% 50%;
+  transition: 0.3s;
+  transform-box: fill-box;
+  /* transform-origin: 189px 79px; */
+}
+
+.active .background {
+  opacity: 0;
+}
