@@ -2,4 +2,4 @@
 
 Practice svg here
 new year commits!!
-lasy day 2 commits
+lazy day 2 commits
